@@ -40,11 +40,20 @@ function App() {
   const stop = () => { osc.toDestination().stop();noi.toDestination().stop();}
   const vowels = [];
 
-  const canvasRef = useRef(null);
   return (
     <div className="App" id='wrapper'>
       <button id='play-button' onClick={play}>play</button>
       <button id='stop-button' onClick={stop}>stop</button>
+      <Vowel f1={570} f2={840} f3={2410} name={"ow"}/>
+      <Vowel f1={300} f2={870} f3={2240} name={"oo"}/>
+      <Vowel f1={440} f2={1020} f3={2240} name={"u"}/>
+      <Vowel f1={730} f2={1090} f3={2440} name={"a"}/>
+      <Vowel f1={520} f2={1190} f3={2390} name={"uh"}/>
+      <Vowel f1={490} f2={1350} f3={1690} name={"er"}/>
+      <Vowel f1={660} f2={1720} f3={2480} name={"ae"}/>
+      <Vowel f1={530} f2={870} f3={1840} name={"e"}/>
+      <Vowel f1={390} f2={1990} f3={2480} name={"i"}/>
+      <Vowel f1={270} f2={2290} f3={3010} name={"iy"}/>
     </div>
   );
 }
