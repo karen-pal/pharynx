@@ -5,6 +5,7 @@ import Vowel from './Vowel';
 
 import React, { Suspense, useRef, useEffect, useState } from "react";
 function App() {
+  const [mousePosition, setMousePosition] = useState({x:0,y:0});
   const synth = new Tone.MembraneSynth().toDestination();
   const filtf1 = new Tone.BiquadFilter({
     frequency: 490,
@@ -39,9 +40,10 @@ function App() {
   const play = () => { osc.toDestination().start();noi.toDestination().start();}
   const stop = () => { osc.toDestination().stop();noi.toDestination().stop();}
   const vowels = [];
-
+  const mouseMove = (e) => {setMousePosition({x:e.clientX - e.target.offsetTop, y:e.clientY - e.target.offsetTop})}
   return (
-    <div className="App" id='wrapper'>
+    <div className="App" id='wrapper' onMouseMove={(e) =>mouseMove(e)}>
+      <div> {mousePosition.x+","+mousePosition.y}</div>
       <button id='play-button' onClick={play}>play</button>
       <button id='stop-button' onClick={stop}>stop</button>
       <Vowel f1={570} f2={840} f3={2410} name={"ow"}/>
