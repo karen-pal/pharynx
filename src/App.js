@@ -5,7 +5,6 @@ import Vowel from './Vowel';
 
 import React, { Suspense, useRef, useEffect, useState } from "react";
 function App() {
-  const [mousePosition, setMousePosition] = useState({x:0,y:0});
   const vowels = [
       {x:570,y :840, f3:2410}, 
       {x:300,y :870, f3:2240}, 
@@ -102,7 +101,7 @@ function App() {
                             }
 
   const stop = () => { osc.toDestination().stop();noi.toDestination().stop();}
-  const mouseMove = (e) => {setMousePosition({x:e.clientX - e.target.offsetTop, y:e.clientY - e.target.offsetTop})}
+
   return (
     <div className="App" id='wrapper' >
       <button id='play-button' onMouseDown={(e)=>playCopado(e)}>play</button>
